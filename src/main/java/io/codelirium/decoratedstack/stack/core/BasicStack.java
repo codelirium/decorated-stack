@@ -1,6 +1,7 @@
 package io.codelirium.decoratedstack.stack.core;
 
 import com.google.common.collect.Lists;
+import org.springframework.util.Assert;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,9 @@ public final class BasicStack<T> implements IStack<T> {
 
 	@Override
 	public synchronized void push(final T element) {
+
+		Assert.notNull(element, "The element cannot be null.");
+
 
 		content.add(element);
 
